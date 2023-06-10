@@ -1,6 +1,6 @@
-﻿//#define KEYBOARD   //modes: KEYBOARD, JOYSTICK, LOADCELL (only toggle one at a time)
+﻿#define KEYBOARD   //modes: KEYBOARD, JOYSTICK, LOADCELL (only toggle one at a time)
 //#define JOYSTICK
-#define LOADCELL
+//#define LOADCELL
 
 #if KEYBOARD
     // Keyboard controls
@@ -218,7 +218,9 @@
             //Vector3 horizontalMove = transform.right * horizontalInput * speed * Time.fixedDeltaTime * horizontalMultiplier;  //accelerates
             //Vector3 horizontalMove = transform.right * horizontalInput * speed * (0.035f - Time.fixedDeltaTime) * horizontalMultiplier;  //decelerates
             Vector3 horizontalMove = transform.right * horizontalInput * speed * 0.025f * horizontalMultiplier;  //constant speed
-            rb.MovePosition(rb.position + forwardMove + horizontalMove);        
+            //rb.MovePosition(rb.position + forwardMove + horizontalMove); 
+            rb.MovePosition(rb.position + forwardMove);
+            rb.MovePosition(rb.position + horizontalMove);         
         }
 
         private void Update () 
@@ -227,7 +229,7 @@
             float length = 5;  //effectively just a scaling constant
 
             receivedstring = data_stream.ReadLine();
-            //data_stream.ReadTimeout = 10000;
+            data_stream.ReadTimeout = 200;
 //            Debug.Log(receivedstring);  //comment out
             string[] datas = receivedstring.Split(',');
             f1 = float.Parse(datas[0]);
