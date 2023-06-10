@@ -245,10 +245,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c623b961c9d374cb32e389f185eab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
   rb: {fileID: 41877087}
   horizontalMultiplier: 1.7
   speedIncreasePerPoint: 0.5
+  receivedstring: 
+  test_data: {fileID: 0}
+  sensitivity: 0.01
+  datas: []
 --- !u!1 &126221218
 GameObject:
   m_ObjectHideFlags: 0
